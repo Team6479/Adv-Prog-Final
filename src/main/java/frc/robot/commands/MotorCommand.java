@@ -14,7 +14,7 @@ public class MotorCommand extends Command {
   public MotorCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(motorspin);
+    requires(Robot.motorspin);
   }
 
   // Called just before this Command runs the first time
@@ -25,9 +25,8 @@ public class MotorCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.motorspin
-        .getMotor()
-        .whenPressed()
+    Robot.oi.xbox.getTriggerAxis(Hand.kRight);
+        
   }
 
   // Make this return true when this Command no longer needs to run execute()
