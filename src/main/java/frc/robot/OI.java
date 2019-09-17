@@ -16,7 +16,7 @@ import com.team6479.lib.controllers.CBXboxController;
 public class OI {
   public CBXboxController xbox = new CBXboxController(0);
 
-  public OI() { 
+  public OI() {
     // Buttons code (if needed)
   }
 }

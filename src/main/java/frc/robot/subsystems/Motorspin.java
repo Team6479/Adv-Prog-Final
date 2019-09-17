@@ -12,17 +12,16 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.MotorCommand;
 
-/**
- * Add your docs here.
- */
+/** Add your docs here. */
 public class Motorspin extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private Spark motor;
-  public Motorspin(){
+
+  public Motorspin() {
     motor = new Spark(RobotMap.MOTOR_SPIN);
   }
-  
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
