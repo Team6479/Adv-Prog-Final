@@ -18,4 +18,5 @@ public class RobotMap {
   public static final int DRIVETRAIN_RIGHT_FRONT = 2;
   public static final int DRIVETRAIN_LEFT_BACK = 1;
   public static final int DRIVETRAIN_RIGHT_BACK = 3;
+  public static final int MOTOR_SPIN = 4;
 }
