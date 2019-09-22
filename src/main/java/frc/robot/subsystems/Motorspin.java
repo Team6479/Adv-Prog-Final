@@ -16,18 +16,19 @@ public class Motorspin extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private Spark motor;
-
+  private double motoron = 1.0;
+  private double motoroff = 0.0;
   public Motorspin() {
     motor = new Spark(RobotMap.MOTOR_SPIN);
   }
   public void on() {
-    motor.set(1.0);
+    motor.set(motoron);
   }
   public void off() {
-    motor.set(0.0);
+    motor.set(motoroff);
   }
   public void toggle() {
-    if (motor.get() == 1.0) {
+    if (motor.get() == motoron) {
       this.off();
     } else {
       this.on();
