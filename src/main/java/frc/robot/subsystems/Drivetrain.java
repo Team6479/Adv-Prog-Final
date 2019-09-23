@@ -5,6 +5,8 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+//ADD ENCODER CODE SOMEWHERE IN HERE
+
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Spark;
