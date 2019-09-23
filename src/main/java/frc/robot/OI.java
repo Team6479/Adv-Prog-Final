@@ -8,6 +8,13 @@
 package frc.robot;
 
 import com.team6479.lib.controllers.CBXboxController;
+import com.team6479.lib.controllers.CBXboxController.Buttons;
+
+import edu.wpi.first.wpilibj.RobotController;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.robot.commands.MoveForward;
 
 /**
  * This class is the glue that binds the controls on the physical operator interface to the commands
@@ -17,6 +24,6 @@ public class OI {
   public CBXboxController xbox = new CBXboxController(0);
 
   public OI() { 
-    // Buttons code (if needed)
+    xbox.getButton(Buttons.kX).whileHeld("MoveForward");
   }
 }
