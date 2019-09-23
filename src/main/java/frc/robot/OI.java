@@ -24,6 +24,6 @@ public class OI {
   public CBXboxController xbox = new CBXboxController(0);
 
   public OI() { 
-    xbox.getButton(Buttons.kX).whileHeld("MoveForward");
+    xbox.getButton(Buttons.kX).whileHeld(new MoveForward());
   }
 }
