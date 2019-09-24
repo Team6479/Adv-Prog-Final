@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class SpinButton extends Command {
-  
+   
   private boolean finished = false;
 
   public SpinButton() {
