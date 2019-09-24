@@ -9,6 +9,8 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalSource;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -26,6 +28,10 @@ public class Drivetrain extends Subsystem {
   private SpeedControllerGroup left;
   private SpeedControllerGroup right;
 
+  protected Encoder encoder;
+  protected DigitalSource m_aSource;
+  protected DigitalSource m_bSource;
+
   private DifferentialDrive drive;
 
   public Drivetrain() {
@@ -34,6 +40,8 @@ public class Drivetrain extends Subsystem {
     leftBack = new Spark(RobotMap.DRIVETRAIN_LEFT_BACK);
     rightBack = new Spark(RobotMap.DRIVETRAIN_RIGHT_BACK);
 
+    encoder = new Encoder(m_aSource, m_bSource);
+    
     left = new SpeedControllerGroup(leftFront, leftBack);
     right = new SpeedControllerGroup(rightFront, rightBack);
 
@@ -43,7 +51,12 @@ public class Drivetrain extends Subsystem {
   public DifferentialDrive getDrive() {
     return drive;
   }
-
+  public void zero() {
+    encoder.reset();
+  }
+  public double distanceTraveled() {
+    return encoder.getDistance();
+  }
   @Override
   public void initDefaultCommand() {
     setDefaultCommand(new TeleopDrive());

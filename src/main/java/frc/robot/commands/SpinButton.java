@@ -16,25 +16,33 @@ public class SpinButton extends Command {
     // eg. requires(chassis);
     requires(Robot.drivetrain);
   }
-
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.drivetrain.zero();
     
   }
-
+  private boolean finished = false;
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.drivetrain
-        .getDrive()
-        .arcadeDrive(0.0, 1.0);
+    final double FULL_CIRCLE = 10.0;
+    if (Robot.drivetrain.distanceTraveled() < FULL_CIRCLE * 2){
+      Robot.drivetrain
+          .getDrive()
+          .arcadeDrive(0.0, 1.0);
+    } else {
+      Robot.drivetrain
+          .getDrive()
+          .arcadeDrive(0.0, 0.0);
+          finished = true;
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return finished;
   }
 
   // Called once after isFinished returns true
