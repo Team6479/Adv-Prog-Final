@@ -55,7 +55,7 @@ public class Drivetrain extends Subsystem {
     encoderRight.reset();
   }
   public double distanceTraveled() {
-    return encoderLeft.getDistance() - encoderRight.getDistance();
+    return encoderLeft.getRaw() - encoderRight.getRaw();
   }
   @Override
   public void initDefaultCommand() {
