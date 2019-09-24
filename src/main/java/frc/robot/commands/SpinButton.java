@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class SpinButton extends Command {
+  
+  private boolean finished = false;
+
   public SpinButton() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -22,7 +25,6 @@ public class SpinButton extends Command {
     Robot.drivetrain.zero();
     
   }
-  private boolean finished = false;
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
