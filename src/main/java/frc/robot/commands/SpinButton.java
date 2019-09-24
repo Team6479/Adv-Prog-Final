@@ -26,7 +26,7 @@ public class SpinButton extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    final double FULL_CIRCLE = 10.0;
+    final double FULL_CIRCLE = 10.0; //random value
     if (Robot.drivetrain.distanceTraveled() < FULL_CIRCLE * 2){
       Robot.drivetrain
           .getDrive()

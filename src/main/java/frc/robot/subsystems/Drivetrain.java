@@ -9,7 +9,6 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.DigitalSource;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -28,9 +27,8 @@ public class Drivetrain extends Subsystem {
   private SpeedControllerGroup left;
   private SpeedControllerGroup right;
 
-  protected Encoder encoder;
-  protected DigitalSource m_aSource;
-  protected DigitalSource m_bSource;
+  protected Encoder encoderLeft;
+  protected Encoder encoderRight;
 
   private DifferentialDrive drive;
 
@@ -40,7 +38,8 @@ public class Drivetrain extends Subsystem {
     leftBack = new Spark(RobotMap.DRIVETRAIN_LEFT_BACK);
     rightBack = new Spark(RobotMap.DRIVETRAIN_RIGHT_BACK);
 
-    encoder = new Encoder(m_aSource, m_bSource);
+    encoderLeft = new Encoder(RobotMap.ENCODER_LEFT_ONE, RobotMap.ENCODER_LEFT_TWO, false);
+    encoderRight = new Encoder(RobotMap.ENCODER_RIGHT_ONE, RobotMap.ENCODER_RIGHT_TWO, false);
     
     left = new SpeedControllerGroup(leftFront, leftBack);
     right = new SpeedControllerGroup(rightFront, rightBack);
@@ -52,10 +51,11 @@ public class Drivetrain extends Subsystem {
     return drive;
   }
   public void zero() {
-    encoder.reset();
+    encoderLeft.reset();
+    encoderRight.reset();
   }
   public double distanceTraveled() {
-    return encoder.getDistance();
+    return encoderLeft.getDistance() - encoderRight.getDistance();
   }
   @Override
   public void initDefaultCommand() {
