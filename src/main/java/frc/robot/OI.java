@@ -8,6 +8,11 @@
 package frc.robot;
 
 import com.team6479.lib.controllers.CBXboxController;
+import com.team6479.lib.controllers.CBXboxController.Buttons;
+
+import frc.robot.commands.SpinLeft;
+import frc.robot.commands.SpinRight;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator interface to the commands
@@ -17,6 +22,7 @@ public class OI {
   public CBXboxController xbox = new CBXboxController(0);
 
   public OI() { 
-    // Buttons code (if needed)
+    xbox.getButton(Buttons.kBumperRight).whileActive(new SpinRight());
+    xbox.getButton(Buttons.kBumperLeft).whileActive(new SpinLeft());
   }
 }
