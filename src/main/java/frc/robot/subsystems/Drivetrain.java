@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.TeleopDrive;
 
@@ -37,9 +38,9 @@ public class Drivetrain extends Subsystem {
 
     drive = new DifferentialDrive(left, right);
   }
-
-  public DifferentialDrive getDrive() {
-    return drive;
+  public void arcadeDrive(double speed, double rotation)
+  {
+     drive.arcadeDrive(speed, rotation);
   }
 
   @Override
