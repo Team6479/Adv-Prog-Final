@@ -11,7 +11,6 @@ import com.team6479.lib.controllers.CBXboxController;
 import com.team6479.lib.controllers.CBXboxController.Buttons;
 
 import frc.robot.commands.SpinLeft;
-import frc.robot.commands.SpinRight;
 
 
 /**
@@ -21,8 +20,7 @@ import frc.robot.commands.SpinRight;
 public class OI {
   public CBXboxController xbox = new CBXboxController(0);
 
-  public OI() { 
-    xbox.getButton(Buttons.kBumperRight).whileActive(new SpinRight());
+  public OI() {     
     xbox.getButton(Buttons.kBumperLeft).whileActive(new SpinLeft());
   }
 }
